@@ -1,0 +1,28 @@
+.sidebar
+  .sidebar__header
+    %h3.sidebar__header__username
+      ユーザーネーム
+    %ul.sidebar__header__lists
+      %li.list
+        = link_to '#' do
+          = icon('fa', 'edit',class: 'icon')
+      %li.list
+        = link_to '#' do
+          = icon('fa', 'cog',class: 'icon')
+
+  .sidebar__group-list
+    .sidebar__group-list__group
+      .sidebar__group-list__group__name
+        グループ名
+      .sidebar__group-list__group__message
+        新着メッセージ
+    .sidebar__group-list__group
+      .sidebar__group-list__group__name
+        グループ名
+      .sidebar__group-list__group__message
+        新着メッセージ
+    .sidebar__group-list__group
+      .sidebar__group-list__group__name
+        グループ名
+      .sidebar__group-list__group__message
+        まだメッセージがありません
