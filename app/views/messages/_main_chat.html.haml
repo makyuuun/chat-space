@@ -1,0 +1,36 @@
+.mainchat
+  .mainchat__header
+    .mainchat__header__left
+      .mainchat__header__left__title
+        グループ名
+      %ul.mainchat__header__left__members
+        Member：
+        %li.member
+          メンバー名
+        %li.member
+          メンバー名
+        %li.member
+          メンバー名
+    .mainchat__header__right
+      .mainchat__header__right__button
+        Edit
+    
+  .mainchat__messages
+    .mainchat__messages__message
+      .mainchat__messages__message__upper
+        .mainchat__messages__message__upper__user-name
+          メンバー
+        .mainchat__messages__message__upper__date
+          2017/04/04
+      .mainchat__messages__message__lower
+        .mainchat__messages__message__lower__content
+          メッセージ
+
+  .mainchat__form
+    %form
+      %input.mainchat__form__message{:placeholder => "type a message"}/
+      .mainchat__form__mask
+        %label.mainchat__form__mask__image
+          = icon('fa','image',class: 'icon')
+          %input.hidden{type: 'file'}
+      %input.mainchat__form__submit{type: 'submit', value: 'Send'}
