@@ -4,25 +4,18 @@
       = current_user.name
     %ul.sidebar__header__lists
       %li.list
-        = link_to '#' do
+        = link_to new_group_path do
           = icon('fa', 'edit',class: 'icon')
       %li.list
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog', class: 'icon')
 
   .sidebar__group-list
-    .sidebar__group-list__group
-      .sidebar__group-list__group__name
-        グループ名
-      .sidebar__group-list__group__message
-        新着メッセージ
-    .sidebar__group-list__group
-      .sidebar__group-list__group__name
-        グループ名
-      .sidebar__group-list__group__message
-        新着メッセージ
-    .sidebar__group-list__group
-      .sidebar__group-list__group__name
-        グループ名
-      .sidebar__group-list__group__message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .sidebar__group-list__group
+        = link_to '#' do
+          .sidebar__group-list__group__name
+            = group.name
+          .sidebar__group-list__group__message
+            メッセージはまだありません。
+    
