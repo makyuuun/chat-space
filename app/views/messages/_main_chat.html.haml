@@ -2,35 +2,25 @@
   .mainchat__header
     .mainchat__header__left
       .mainchat__header__left__title
-        グループ名
+        = @group.name
       %ul.mainchat__header__left__members
         Member：
-        %li.member
-          メンバー名
-        %li.member
-          メンバー名
-        %li.member
-          メンバー名
+        - @group.users.each do |user|
+          = user.name
+        
     .mainchat__header__right
       .mainchat__header__right__button
-        Edit
+        = link_to edit_group_path(@group) do
+          Edit
     
   .mainchat__messages
-    .mainchat__messages__message
-      .mainchat__messages__message__upper
-        .mainchat__messages__message__upper__user-name
-          メンバー
-        .mainchat__messages__message__upper__date
-          2017/04/04
-      .mainchat__messages__message__lower
-        .mainchat__messages__message__lower__content
-          メッセージ
+    = render @messages
 
   .mainchat__form
-    %form
-      %input.mainchat__form__message{:placeholder => "type a message"}/
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'mainchat__form__message', placeholder: 'type a message'
       .mainchat__form__mask
-        %label.mainchat__form__mask__image
-          = icon('fa','image',class: 'icon')
-          %input.hidden{type: 'file'}
-      %input.mainchat__form__submit{type: 'submit', value: 'Send'}
+        = f.label :image, class: 'mainchat__form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'mainchat__form__submit'
