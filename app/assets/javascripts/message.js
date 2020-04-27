@@ -52,7 +52,7 @@ $('#new_message').on('submit', function(e){
    contentType: false
  })
   .done(function(data){
-    console.log(data);
+    
     var html = buildHTML(data);
     $('.mainchat__messages').append(html);
     $('.mainchat__messages').animate({scrollTop: $('.mainchat__messages')[0].scrollHeight}, 'fast');
