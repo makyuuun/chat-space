@@ -33,6 +33,11 @@
       line-height: 40px;
       margin-top: 28px;
       padding: 0 20px;
+      &__button {
+        a {
+          color: $light_blue;
+        }
+      }
     }
   }
 
